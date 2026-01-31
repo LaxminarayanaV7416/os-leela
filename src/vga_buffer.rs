@@ -1,3 +1,16 @@
+//! VGA Text Buffer Module
+//!
+//! This module provides a driver for interacting with the VGA text buffer
+//! located at memory address 0xb8000. It allows writing colored text to
+//! the screen in a 80x25 character grid.
+//!
+//! # Features
+//! - Direct memory-mapped VGA buffer access
+//! - Color support with 16 foreground and 8 background colors
+//! - Automatic line scrolling
+//! - Thread-safe global writer with lazy initialization
+//! - `print!` and `println!` macro support
+
 use volatile::Volatile;
 use core::fmt;
 use lazy_static::lazy_static;
